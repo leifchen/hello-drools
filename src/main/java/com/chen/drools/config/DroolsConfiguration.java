@@ -45,6 +45,7 @@ public class DroolsConfiguration {
     @Bean
     @ConditionalOnMissingBean(KieContainer.class)
     public KieContainer kieContainer() {
+        System.setProperty("drools.dateformat","yyyy-MM-dd");
         KieRepository kieRepository = KieServices.Factory.get().getRepository();
         kieRepository.addKieModule(kieRepository::getDefaultReleaseId);
         KieBuilder kieBuilder = KieServices.Factory.get().newKieBuilder(kieFileSystem());

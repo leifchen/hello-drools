@@ -1,0 +1,112 @@
+package rules;
+
+import com.chen.drools.bean.Person
+
+rule "testNoLoop"
+  no-loop true
+    when
+        $p:Person(name=="no-loop");
+    then
+        $p.setName("no-loop");
+        update($p);
+        System.out.println("testNoLoop");
+end
+
+rule "testLockOnActive"
+  lock-on-active true
+    when
+        $p:Person(name=="lock-on-active");
+    then
+        $p.setName("lock-on-active");
+        update($p);
+        System.out.println("testLockOnActive");
+end
+
+rule "testSalience1"
+  salience -1
+    when
+        $p:Person(name=="salience");
+    then
+        System.out.println("testSalience1");
+end
+
+rule "testSalience2"
+  salience 1
+    when
+        $p:Person(name=="salience");
+    then
+        System.out.println("testSalience2");
+end
+
+rule "testEnabledTrue"
+  enabled true
+    when
+        $p:Person(name=="enabled");
+    then
+        System.out.println("testEnabledTrue");
+end
+
+rule "testEnabledFalse"
+  enabled false
+    when
+        $p:Person(name=="enabled");
+    then
+        System.out.println("testEnabledFalse");
+end
+
+rule "testDateEffective"
+  date-effective "2020-01-01"
+    when
+        $p:Person(name=="date-effective");
+    then
+        System.out.println("testDateEffective");
+end
+
+rule "testDateExpires"
+  date-expires "9999-12-31"
+    when
+        $p:Person(name=="date-expires");
+    then
+        System.out.println("testDateExpires");
+end
+
+rule "testActivationGroup1"
+  activation-group "testGroup"
+    when
+        $p:Person(name=="activation-group");
+    then
+        System.out.println("testActivationGroup1");
+end
+
+rule "testActivationGroup2"
+  activation-group "testGroup"
+    when
+        $p:Person(name=="activation-group");
+    then
+        System.out.println("testActivationGroup2");
+end
+
+rule "testAgendaGroup1"
+  agenda-group "ag1"
+    when
+        $p:Person(name=="agenda-group");
+    then
+        System.out.println("testAgendaGroup1");
+end
+
+rule "testAgendaGroup2"
+  agenda-group "ag2"
+    when
+        $p:Person(name=="agenda-group");
+    then
+        System.out.println("testAgendaGroup2");
+end
+
+rule "testAutoFocus"
+  auto-focus true
+  agenda-group "ag3"
+    when
+        $p:Person(name=="auto-focus");
+    then
+        System.out.println("testAutoFocus");
+end

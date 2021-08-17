@@ -4,7 +4,7 @@ import com.chen.drools.bean.Person
 
 rule "test001"
     when
-        eval(true)
+        eval(false)
     then
         System.out.println("hello drools");
 end
