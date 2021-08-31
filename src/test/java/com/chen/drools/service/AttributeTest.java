@@ -11,7 +11,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import static org.junit.Assert.assertEquals;
 
 /**
- * 单元测试
+ * 规则属性单元测试
  * <p>
  *
  * @Author LeifChen
@@ -19,7 +19,7 @@ import static org.junit.Assert.assertEquals;
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class TestServiceTest {
+public class AttributeTest {
 
     @Autowired
     private KieSession kieSession;
