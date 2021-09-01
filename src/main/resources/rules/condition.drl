@@ -35,7 +35,7 @@ end
 
 rule "testStr"
     when
-        $p:Person(className str[endsWith] "班")
+        $p:Person(className != null && className str[endsWith] "班")
     then
         System.out.println("testStr");
 end
