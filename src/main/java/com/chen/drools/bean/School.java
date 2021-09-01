@@ -3,6 +3,8 @@ package com.chen.drools.bean;
 import lombok.Data;
 
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * School
@@ -17,4 +19,6 @@ public class School {
     private String code;
     private String className;
     private List<String> classNameList;
+    private Set<String> classNameSet;
+    private Map<String,Integer> classNameMap;
 }

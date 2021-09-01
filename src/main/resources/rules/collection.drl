@@ -1,0 +1,24 @@
+package rules
+
+import com.chen.drools.bean.School
+
+rule "testList"
+    when
+        $s:School(classNameList != null && classNameList[0] == "一班")
+    then
+        System.out.println("testList, School属性classNameList第一个元素:"+$s.getClassNameList().get(0));
+end
+
+rule "testSet"
+    when
+        $s:School(classNameSet != null && classNameSet.iterator().next() == "一班")
+    then
+        System.out.println("testSet, School属性classNameSet第一个元素:"+$s.getClassNameSet().iterator().next());
+end
+
+rule "testMap"
+    when
+        $s:School(classNameMap != null && classNameMap.get("一班") == 1)
+    then
+        System.out.println("testMap, School属性classNameMap第一个元素:"+$s.getClassNameMap().get("一班"));
+end
