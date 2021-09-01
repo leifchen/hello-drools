@@ -1,4 +1,4 @@
-package rules.condition;
+package rules;
 
 import com.chen.drools.bean.Person
 import com.chen.drools.bean.School

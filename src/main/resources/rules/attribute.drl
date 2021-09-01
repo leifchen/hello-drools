@@ -1,4 +1,4 @@
-package rules.attribute;
+package rules;
 
 import com.chen.drools.bean.Person
 
