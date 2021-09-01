@@ -15,7 +15,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import static org.junit.Assert.assertEquals;
 
 /**
- * 基础语法单元测试
+ * 运算符单元测试
  * <p>
  *
  * @Author LeifChen
@@ -23,7 +23,7 @@ import static org.junit.Assert.assertEquals;
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class BasicTest {
+public class OperatorTest {
 
     @Autowired
     private KieBase kieBase;
