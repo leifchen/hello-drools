@@ -1,0 +1,38 @@
+package rules
+
+import com.chen.drools.bean.Person
+
+rule "testAdd"
+    when
+        $p:Person(age != null && age+2 == 20)
+    then
+        System.out.println("testAdd");
+end
+
+rule "testSub"
+    when
+        $p:Person(age != null && age-2 == 16)
+    then
+        System.out.println("testSub");
+end
+
+rule "testMul"
+    when
+        $p:Person(age != null && age*2 == 36)
+    then
+        System.out.println("testMul");
+end
+
+rule "testDiv"
+    when
+        $p:Person(age != null && age/2 == 9)
+    then
+        System.out.println("testDiv");
+end
+
+rule "testMod"
+    when
+        $p:Person(age != null && age%2 == 0)
+    then
+        System.out.println("testMod");
+end
