@@ -1,6 +1,9 @@
 package rules
 
 import com.chen.drools.bean.School
+import java.util.List
+import java.util.Map
+import java.util.Set
 
 rule "testList"
     when
@@ -21,4 +24,25 @@ rule "testMap"
         $s:School(classNameMap != null && classNameMap.get("一班") == 1)
     then
         System.out.println("testMap, School属性classNameMap第一个元素:"+$s.getClassNameMap().get("一班"));
+end
+
+rule "testCollectionList"
+    when
+        $l:List()
+    then
+        System.out.println("testCollectionList, 输出List集合大小:"+$l.size());
+end
+
+rule "testCollectionSet"
+    when
+        $s:Set()
+    then
+        System.out.println("testCollectionList, 输出Set集合大小:"+$s.size());
+end
+
+rule "testCollectionMap"
+    when
+        $m:Map()
+    then
+        System.out.println("testCollectionList, 输出Map集合大小:"+$m.size());
 end

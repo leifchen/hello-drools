@@ -50,6 +50,17 @@ public class CollectionTest {
 
         kieSession = kieBase.newKieSession();
         kieSession.insert(school);
+        kieSession.insert(Arrays.asList("一班", "二班", "三班"));
+        kieSession.insert(new HashSet<String>() {{
+            add("一班");
+            add("二班");
+            add("三班");
+        }});
+        kieSession.insert(new HashMap<String, Integer>() {{
+            put("一班", 1);
+            put("二班", 2);
+            put("三班", 3);
+        }});
     }
 
     @After
@@ -70,5 +81,20 @@ public class CollectionTest {
     @Test
     public void testMap() {
         assertEquals(1, kieSession.fireAllRules(new RuleNameEqualsAgendaFilter("testMap")));
+    }
+
+    @Test
+    public void testCollectionList() {
+        assertEquals(1, kieSession.fireAllRules(new RuleNameEqualsAgendaFilter("testCollectionList")));
+    }
+
+    @Test
+    public void testCollectionSet() {
+        assertEquals(1, kieSession.fireAllRules(new RuleNameEqualsAgendaFilter("testCollectionSet")));
+    }
+
+    @Test
+    public void testCollectionMap() {
+        assertEquals(1, kieSession.fireAllRules(new RuleNameEqualsAgendaFilter("testCollectionMap")));
     }
 }
