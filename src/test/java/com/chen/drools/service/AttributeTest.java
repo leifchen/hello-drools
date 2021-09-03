@@ -1,6 +1,7 @@
 package com.chen.drools.service;
 
 import com.chen.drools.bean.Person;
+import org.drools.core.base.RuleNameEqualsAgendaFilter;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.kie.api.runtime.KieSession;
@@ -53,7 +54,7 @@ public class AttributeTest {
         Person person = new Person();
         person.setName("enabled");
         kieSession.insert(person);
-        assertEquals(1, kieSession.fireAllRules());
+        assertEquals(1, kieSession.fireAllRules(new RuleNameEqualsAgendaFilter("testEnabledTrue")));
     }
 
     @Test
