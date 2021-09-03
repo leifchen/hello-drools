@@ -1,6 +1,6 @@
 package com.chen.drools.bean;
 
-import lombok.Data;
+import lombok.*;
 
 /**
  * Person
@@ -10,8 +10,11 @@ import lombok.Data;
  * @Date 2021-07-31
  */
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@ToString
 public class Person {
-
     private String name;
     private Integer age;
     private String className;

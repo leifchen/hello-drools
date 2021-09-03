@@ -1,0 +1,86 @@
+package rules
+
+import com.chen.drools.bean.Person
+import com.chen.drools.bean.School
+import java.util.List
+
+import function com.chen.drools.utils.CommonUtil.echo
+
+global java.lang.Integer count
+global School school
+global List list
+
+function String hello(String msg) {
+    return "Hello " + msg + "!";
+}
+
+function boolean alwaysTrue() {
+    return true;
+}
+
+query "person age is 18 and name is LeifChen"(String $name)
+    person:Person(age == 18, name == $name)
+end
+
+declare PersonEx extends Person
+    @author( LeiFchen )
+    @dateOfCreation( 2021-09-03 )
+    gender:String
+end
+
+rule "testGlobal1"
+    when
+    then
+        System.out.println("testGlobal1, 原始常量count: " + count);
+        System.out.println("testGlobal1, 原始对象school的code: " + school.getCode());
+        System.out.println("testGlobal1, 原始集合list大小: " + list.size());
+        count = 0;
+        school.setCode("S1");
+        list.add("a");
+        list.add("b");
+        System.out.println("testGlobal1, 更新后常量count: " + count);
+        System.out.println("testGlobal1, 更新后对象school的code: " + school.getCode());
+        System.out.println("testGlobal1, 更新后集合list大小: " + list.size());
+end
+
+rule "testGlobal2"
+    when
+    then
+        count++;
+        System.out.println("testGlobal2, count: " + count);
+        System.out.println("testGlobal2, school的code: " + school.getCode());
+        System.out.println("testGlobal2, list大小: " + list.size());
+end
+
+rule "testFunction"
+    when
+        eval(alwaysTrue())
+    then
+        echo();
+        System.out.println(hello("LeifChen"));
+end
+
+rule "testQuery"
+    when
+    then
+        System.out.println("testQuery");
+end
+
+rule "testDeclareInsert"
+    salience 10
+    when
+    then
+        PersonEx personEx = new PersonEx();
+        personEx.setName("LeifChen");
+        personEx.setAge(18);
+        personEx.setGender("M");
+        insert(personEx);
+end
+
+rule "testDeclare"
+    salience 1
+    when
+        $p:PersonEx(gender == "M")
+    then
+        System.out.println("testDeclare");
+end
