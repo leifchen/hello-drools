@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<kmodule xmlns="http://www.drools.org/xsd/kmodule">
+
+    <kbase name="senior" packages="rules.senior">
+        <ksession name="decisionTable"/>
+    </kbase>
+
+</kmodule>
