@@ -80,7 +80,7 @@ public class DroolsConfiguration {
         Resource[] resources = new Resource[0];
         ResourcePatternResolver resourcePatternResolver = new PathMatchingResourcePatternResolver();
         try {
-            resources = resourcePatternResolver.getResources("classpath*:" + RULES_PATH + "**/*.*");
+            resources = resourcePatternResolver.getResources("classpath*:" + RULES_PATH + "**/*.drl");
         } catch (IOException e) {
             log.error("加载规则文件失败", e);
         }
