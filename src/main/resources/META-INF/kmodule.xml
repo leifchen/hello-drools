@@ -4,6 +4,7 @@
 
     <kbase name="senior" packages="rules.senior">
         <ksession name="decisionTable"/>
+        <ksession name="dsl"/>
     </kbase>
 
 </kmodule>

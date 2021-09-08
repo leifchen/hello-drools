@@ -68,4 +68,15 @@ public class SeniorTest {
         kieSession.insert(person);
         assertEquals(1, kieSession.fireAllRules());
     }
+
+    /**
+     * DSL领域语言
+     */
+    @Test
+    public void testDSL() {
+        kieSession = kieContainer.newKieSession("dsl");
+        Person person = Person.builder().name("LeifChen").age(18).build();
+        kieSession.insert(person);
+        assertEquals(1, kieSession.fireAllRules());
+    }
 }

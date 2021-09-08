@@ -1,0 +1,15 @@
+package rules.senior
+
+import com.chen.drools.bean.Person
+
+expander person.dsl
+
+rule "testDSL"
+    when
+        学生办找一个人
+            - 年龄 小于或等于 30
+            - 名字 是 "LeifChen"
+    then
+        学校决定将你安排到"一班"
+        输出结果
+end
