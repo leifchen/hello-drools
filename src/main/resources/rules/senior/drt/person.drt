@@ -1,0 +1,20 @@
+template header
+age
+className
+
+package rules.senior.drt
+
+import com.chen.drools.bean.Person
+
+template "drt"
+
+rule "testDRT_@{row.rowNumber}"
+no-loop true
+    when
+        $p:Person(age == @{age})
+    then
+        $p.setClassName("@{className}");
+        update($p);
+end
+
+end template

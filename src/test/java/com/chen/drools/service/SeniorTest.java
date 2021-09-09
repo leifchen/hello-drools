@@ -51,7 +51,7 @@ public class SeniorTest {
      */
     @Test
     public void verificationDecisionTable() throws FileNotFoundException {
-        File file = new File("E:\\hello_workspace\\hello-drools\\src\\main\\resources\\rules\\senior\\decisionTable.xlsx");
+        File file = new File("E:\\hello_workspace\\hello-drools\\src\\main\\resources\\rules\\senior\\dt\\decisionTable.xlsx");
         InputStream is = new FileInputStream(file);
         SpreadsheetCompiler converter = new SpreadsheetCompiler();
         String drl = converter.compile(is, InputType.XLS);
@@ -78,5 +78,17 @@ public class SeniorTest {
         Person person = Person.builder().name("LeifChen").age(18).build();
         kieSession.insert(person);
         assertEquals(1, kieSession.fireAllRules());
+    }
+
+    /**
+     * DRT规则模板
+     */
+    @Test
+    public void testDRT() {
+        kieSession = kieContainer.newKieSession("drt");
+        Person person = Person.builder().name("LeifChen").age(10).build();
+        kieSession.insert(person);
+        kieSession.fireAllRules();
+        assertEquals("一班", person.getClassName());
     }
 }

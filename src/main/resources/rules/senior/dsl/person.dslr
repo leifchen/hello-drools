@@ -1,4 +1,4 @@
-package rules.senior
+package rules.senior.dsl
 
 import com.chen.drools.bean.Person
 
